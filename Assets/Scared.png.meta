@@ -1,16 +1,16 @@
 fileFormatVersion: 2
-guid: 209a7afaa6ecb4196962df37d07bbc9e
+guid: 6b0e57f76ab244f5690ae8ab1c99c46a
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -584679137961005888
-    second: AngryFace_0
+      213: 6217520884255543542
+    second: Scared_0
   - first:
-      213: -8019927729144752503
-    second: AngryFace_1
+      213: -6303353646489252686
+    second: Scared_1
   - first:
-      213: -8927341362690221040
-    second: AngryFace_2
+      213: 3210537931363622201
+    second: Scared_2
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -132,13 +132,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AngryFace_0
+      name: Scared_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 307
-        height: 289
+        width: 284
+        height: 254
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -147,20 +147,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0cca04afb6dc2e7f0800000000000000
-      internalID: -584679137961005888
+      spriteID: 6f0df996d42194650800000000000000
+      internalID: 6217520884255543542
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngryFace_1
+      name: Scared_1
       rect:
         serializedVersion: 2
-        x: 213
-        y: 212
-        width: 84
-        height: 77
+        x: 201
+        y: 169
+        width: 83
+        height: 85
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -169,20 +169,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 9869504c83e73b090800000000000000
-      internalID: -8019927729144752503
+      spriteID: 2bc485f414df588a0800000000000000
+      internalID: -6303353646489252686
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: AngryFace_2
+      name: Scared_2
       rect:
         serializedVersion: 2
-        x: 0
+        x: 37
         y: 0
-        width: 307
-        height: 106
+        width: 219
+        height: 86
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -191,8 +191,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 01c92386456bb1480800000000000000
-      internalID: -8927341362690221040
+      spriteID: 93d98d80d3f1e8c20800000000000000
+      internalID: 3210537931363622201
       vertices: []
       indices: 
       edges: []
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 632bb7cf23f104d1cac88ead41f4e509
+    spriteID: 211e8b40946814d389282c5dad2c78de
     internalID: 0
     vertices: []
     indices: 
@@ -211,9 +211,9 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      AngryFace_0: -584679137961005888
-      AngryFace_1: -8019927729144752503
-      AngryFace_2: -8927341362690221040
+      Scared_0: 6217520884255543542
+      Scared_1: -6303353646489252686
+      Scared_2: 3210537931363622201
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

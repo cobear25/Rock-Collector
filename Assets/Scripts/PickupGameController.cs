@@ -5,6 +5,7 @@ using System.Linq;
 public class PickupGameController : MonoBehaviour
 {
     public GameObject rockPrefab;
+    public GameObject rockBox;
     List <PickupRock> pickupRocks = new List<PickupRock>();
     int maxSortingOrder = 0;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
@@ -21,16 +22,16 @@ public class PickupGameController : MonoBehaviour
 
     void PopulateLevel() 
     {
-        for (int i = 0; i < 150; i++)
+        for (int i = 0; i < 120; i++)
         {
             var randomX = Random.Range(-18, 18);
-            var randomY = Random.Range(-11, 11);
+            var randomY = Random.Range(-3, 10);
             var retries = 0;
             while (true && pickupRocks.Count > 0) {
                 // loop until random isn't overlapping with any other pickup rock
                 if (pickupRocks.Any(rock => Vector2.Distance(new Vector2(rock.transform.position.x, rock.transform.position.y), new Vector2(randomX, randomY)) < 2)) {
-                    randomX = Random.Range(-15, 15);
-                    randomY = Random.Range(-10, 10);
+                    randomX = Random.Range(-18, 18);
+                    randomY = Random.Range(-3, 10);
                     retries++;
                     if (retries > 100) {
                         break;
@@ -76,5 +77,31 @@ public class PickupGameController : MonoBehaviour
         {
             hoveredRock = null;
         }
+    }
+
+    List<PickupRock> droppedRocks = new List<PickupRock>();
+    public void droppedInBox(PickupRock pickupRock)
+    {
+        if (droppedRocks.Count == 0)
+        {
+            pickupRock.transform.position = new Vector2
+            (
+                rockBox.transform.position.x - 5,
+                rockBox.transform.position.y
+            );
+        }
+        else if (droppedRocks.Count == 1)
+        {
+            pickupRock.transform.position = rockBox.transform.position;
+        }
+        else if (droppedRocks.Count == 2)
+        {
+            pickupRock.transform.position = new Vector2
+            (
+                rockBox.transform.position.x + 5,
+                rockBox.transform.position.y
+            );
+        }
+        droppedRocks.Add(pickupRock);
     }
 }

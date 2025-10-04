@@ -154,9 +154,9 @@ MonoBehaviour:
   - {fileID: 6156513304196729645, guid: 785b8fd9989f64ad1bd06f1d7dcbfe0f, type: 3}
   faceSprites:
   - {fileID: 6288725054739916980, guid: 54774c5fd2e3847e5bd53e0b659bc638, type: 3}
-  - {fileID: 6288725054739916980, guid: 54774c5fd2e3847e5bd53e0b659bc638, type: 3}
+  - {fileID: -3752711834126370623, guid: 95b23ca16962642408ef00eaae1b7993, type: 3}
   - {fileID: -584679137961005888, guid: 209a7afaa6ecb4196962df37d07bbc9e, type: 3}
-  - {fileID: -584679137961005888, guid: 209a7afaa6ecb4196962df37d07bbc9e, type: 3}
+  - {fileID: 6217520884255543542, guid: 6b0e57f76ab244f5690ae8ab1c99c46a, type: 3}
   colors:
   - {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
   - {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}

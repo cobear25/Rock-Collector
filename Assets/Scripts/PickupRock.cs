@@ -26,6 +26,10 @@ public class PickupRock : MonoBehaviour
     public PickupGameController pickupGameController;
     public Rock rock;
     private Vector3 originalScale;
+    private bool isDragging = false;
+    private Vector3 dragOffset;
+    private float dragZ;
+    private bool isDropped = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -77,8 +81,68 @@ public class PickupRock : MonoBehaviour
     // Called when the mouse exits the collider
     void OnMouseExit()
     {
-        pickupGameController.PickupRockUnHovered(this);
-        transform.localScale = originalScale;
+        if (!isDragging) {
+            pickupGameController.PickupRockUnHovered(this);
+            transform.localScale = originalScale;
+        }
+    }
+
+    void OnMouseDown()
+    {
+        isDragging = true;
+        // Determine correct depth from camera to object for ScreenToWorldPoint
+        dragZ = Camera.main.WorldToScreenPoint(transform.position).z;
+        var mousePoint = Input.mousePosition;
+        mousePoint.z = dragZ;
+        var mouseWorld = Camera.main.ScreenToWorldPoint(mousePoint);
+        dragOffset = transform.position - mouseWorld;
+        // Ensure this rock is visually on top while dragging
+        pickupGameController.PickupRockHovered(this);
+    }
+
+    void OnMouseDrag()
+    {
+        if (isDropped) return;
+        if (!isDragging) return;
+        var mousePoint = Input.mousePosition;
+        mousePoint.z = dragZ;
+        var mouseWorld = Camera.main.ScreenToWorldPoint(mousePoint);
+        var target = mouseWorld + dragOffset;
+        transform.position = new Vector3(target.x, target.y, 0f);
+    }
+
+    void OnMouseUp()
+    {
+        isDragging = false;
+        // Check if dropped over the rockBox
+        if (pickupGameController != null && pickupGameController.rockBox != null)
+        {
+            bool overlaps = false;
+
+            // Prefer collider-based overlap if both have colliders
+            var thisCollider = GetComponent<CircleCollider2D>();
+            var boxCollider = pickupGameController.rockBox.GetComponent<BoxCollider2D>();
+            if (thisCollider != null && boxCollider != null)
+            {
+                overlaps = thisCollider.bounds.Intersects(boxCollider.bounds);
+            }
+            else
+            {
+                // Fallback to renderer bounds
+                var thisRenderer = rockSpriteRenderer != null ? rockSpriteRenderer : GetComponentInChildren<SpriteRenderer>();
+                var boxRenderer = pickupGameController.rockBox.GetComponentInChildren<SpriteRenderer>();
+                if (thisRenderer != null && boxRenderer != null)
+                {
+                    overlaps = thisRenderer.bounds.Intersects(boxRenderer.bounds);
+                }
+            }
+
+            if (overlaps)
+            {
+                isDropped = true;
+                pickupGameController.droppedInBox(this);
+            }
+        }
     }
 
 }

@@ -1,16 +1,10 @@
 fileFormatVersion: 2
-guid: 209a7afaa6ecb4196962df37d07bbc9e
+guid: 931f4db8f3d0a4bc981e516a6442c364
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -584679137961005888
-    second: AngryFace_0
-  - first:
-      213: -8019927729144752503
-    second: AngryFace_1
-  - first:
-      213: -8927341362690221040
-    second: AngryFace_2
+      213: -4608754285657118762
+    second: RockBox_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -132,67 +126,23 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: AngryFace_0
+      name: RockBox_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 307
-        height: 289
+        width: 4535
+        height: 1582
       alignment: 0
-      pivot: {x: 0.5, y: 0.5}
+      pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0cca04afb6dc2e7f0800000000000000
-      internalID: -584679137961005888
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AngryFace_1
-      rect:
-        serializedVersion: 2
-        x: 213
-        y: 212
-        width: 84
-        height: 77
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 9869504c83e73b090800000000000000
-      internalID: -8019927729144752503
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: AngryFace_2
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 0
-        width: 307
-        height: 106
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      customData: 
-      outline: []
-      physicsShape: []
-      tessellationDetail: -1
-      bones: []
-      spriteID: 01c92386456bb1480800000000000000
-      internalID: -8927341362690221040
+      spriteID: 6d7295a356a6a00c0800000000000000
+      internalID: -4608754285657118762
       vertices: []
       indices: 
       edges: []
@@ -201,7 +151,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 632bb7cf23f104d1cac88ead41f4e509
+    spriteID: 
     internalID: 0
     vertices: []
     indices: 
@@ -210,10 +160,7 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable:
-      AngryFace_0: -584679137961005888
-      AngryFace_1: -8019927729144752503
-      AngryFace_2: -8927341362690221040
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
