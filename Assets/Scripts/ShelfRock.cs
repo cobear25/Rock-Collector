@@ -55,7 +55,7 @@ public class ShelfRock : MonoBehaviour
         }
         rockSpriteRenderer.sprite = rockSprites[rock.imageType];
         shadowSpriteRenderer.sprite = rockSprites[rock.imageType];
-        face.sprite = faceSprites[(int)rock.emotion];
+        // face.sprite = faceSprites[(int)rock.emotion];
         switch (rock.emotion) {
             case Emotion.happy:
                 face.GetComponent<Animator>().Play("HappyFace");
