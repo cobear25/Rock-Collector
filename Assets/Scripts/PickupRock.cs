@@ -1,11 +1,13 @@
 using UnityEngine;
 
+[System.Serializable]
 public struct Rock {
     public int imageType;
     public int color;
     public bool shiny;
     public bool semiTransparent;
     public Emotion emotion;
+    public int slotIndex;
 }
 
 public enum Emotion {
@@ -29,13 +31,31 @@ public class PickupRock : MonoBehaviour
     private bool isDragging = false;
     private Vector3 dragOffset;
     private float dragZ;
-    private bool isDropped = false;
+    public bool isDropped = false;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rock = new Rock();
-        rock.imageType = Random.Range(0, rockSprites.Length);
-        rock.color = Random.Range(0, colors.Length);
+        if (Random.Range(0, 10) == 0) {
+            // rarer image types
+            rock.imageType = Random.Range(0, 4);
+        } else {
+            rock.imageType = Random.Range(4, rockSprites.Length);
+        }
+        // weighted pick where lower indices are more common and higher are rarer
+        // geometric decay keeps tail possible but uncommon
+        float decay = 0.9f; // 0.5-0.8 works well; lower = rarer tail
+        float totalWeight = 0f;
+        for (int i = 0; i < colors.Length; i++) {
+            totalWeight += Mathf.Pow(decay, i);
+        }
+        float pick = Random.value * totalWeight;
+        float accum = 0f;
+        for (int i = 0; i < colors.Length; i++) {
+            accum += Mathf.Pow(decay, i);
+            if (pick <= accum) { rock.color = i; break; }
+        }
+        // rock.color = Random.Range(0, colors.Length);
         rock.shiny = Random.Range(0, 15) == 1;
         rock.semiTransparent = Random.Range(0, 8) == 1;
         rock.emotion = (Emotion)Random.Range(0, 4);

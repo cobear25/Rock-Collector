@@ -96,11 +96,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6562517206834285725}
-  - component: {fileID: 4472199133098384130}
   - component: {fileID: 9184735275589594214}
-  - component: {fileID: 7247016315883591100}
+  - component: {fileID: 8763938357790090629}
   m_Layer: 0
-  m_Name: PickupRock
+  m_Name: ShelfRock
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -126,64 +125,6 @@ Transform:
   - {fileID: 4601813017332695684}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &4472199133098384130
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2574807077823688191}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3154341f4425c4d67a728ddcecbd0b02, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  rockSpriteRenderer: {fileID: 8505856737913199621}
-  shadowSpriteRenderer: {fileID: 8889561311656424975}
-  shine: {fileID: 5851549032300056301}
-  glow: {fileID: 4702137843669615803}
-  face: {fileID: 4061017207322462426}
-  rockSprites:
-  - {fileID: 7331315201791160908, guid: b17ef1eac64134a83ae05381c608bff1, type: 3}
-  - {fileID: 8476764939301271271, guid: 2e8d4b643dc8f47b3ae07548e1445a29, type: 3}
-  - {fileID: -1027316089336844762, guid: f60568877cfb74b7e824023070eafa41, type: 3}
-  - {fileID: 7505947131765754579, guid: d5fb120d549334414acfc880a027ecc1, type: 3}
-  - {fileID: 6259665926663907396, guid: 227b1fe2d28c94f77aa7fb7fb01fbd59, type: 3}
-  - {fileID: 8176547193288410923, guid: ab0a9476a394f41268b9013d8b4b91e5, type: 3}
-  - {fileID: 2857402250204195418, guid: d129f5cc8a6b34cf484f19fa131d649f, type: 3}
-  - {fileID: 2893266303148912703, guid: 9aa89c72aba1e48a1aa59811719bf509, type: 3}
-  - {fileID: 6156513304196729645, guid: 785b8fd9989f64ad1bd06f1d7dcbfe0f, type: 3}
-  faceSprites:
-  - {fileID: 6288725054739916980, guid: 54774c5fd2e3847e5bd53e0b659bc638, type: 3}
-  - {fileID: -3752711834126370623, guid: 95b23ca16962642408ef00eaae1b7993, type: 3}
-  - {fileID: -584679137961005888, guid: 209a7afaa6ecb4196962df37d07bbc9e, type: 3}
-  - {fileID: 6217520884255543542, guid: 6b0e57f76ab244f5690ae8ab1c99c46a, type: 3}
-  colors:
-  - {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
-  - {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
-  - {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
-  - {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
-  - {r: 0.5283019, g: 0.3981687, b: 0.36133856, a: 1}
-  - {r: 0.4339623, g: 0.22619338, b: 0.16990031, a: 1}
-  - {r: 0.2735849, g: 0.15828507, b: 0.12259701, a: 1}
-  - {r: 1, g: 0.829463, b: 0.7783019, a: 1}
-  - {r: 1, g: 0.77839917, b: 0.33333337, a: 1}
-  - {r: 0.33333337, g: 0.7881937, b: 1, a: 1}
-  - {r: 0.3474306, g: 0.33333337, b: 1, a: 1}
-  - {r: 0.72696465, g: 0.33333337, b: 1, a: 1}
-  - {r: 0.18464097, g: 0.006274463, b: 0.4433962, a: 1}
-  - {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
-  - {r: 0, g: 0.5660378, b: 0.35294122, a: 1}
-  - {r: 0.8098142, g: 1, b: 0.33333337, a: 1}
-  pickupGameController: {fileID: 0}
-  rock:
-    imageType: 0
-    color: 0
-    shiny: 0
-    semiTransparent: 0
-    emotion: 0
-    slotIndex: 0
-  isDropped: 0
 --- !u!58 &9184735275589594214
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -219,34 +160,66 @@ CircleCollider2D:
   m_CompositeOperation: 0
   m_CompositeOrder: 0
   m_Offset: {x: 0, y: 0}
-  m_Radius: 1
---- !u!50 &7247016315883591100
-Rigidbody2D:
-  serializedVersion: 5
+  m_Radius: 1.5
+--- !u!114 &8763938357790090629
+MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2574807077823688191}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDamping: 0
-  m_AngularDamping: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 584ff1e79f976442bbd1babd7cb7671b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  shelfGameController: {fileID: 0}
+  slotIndex: -1
+  rockSpriteRenderer: {fileID: 8505856737913199621}
+  shadowSpriteRenderer: {fileID: 8889561311656424975}
+  shine: {fileID: 5851549032300056301}
+  glow: {fileID: 4702137843669615803}
+  face: {fileID: 4061017207322462426}
+  rockSprites:
+  - {fileID: 7331315201791160908, guid: b17ef1eac64134a83ae05381c608bff1, type: 3}
+  - {fileID: 8476764939301271271, guid: 2e8d4b643dc8f47b3ae07548e1445a29, type: 3}
+  - {fileID: -1027316089336844762, guid: f60568877cfb74b7e824023070eafa41, type: 3}
+  - {fileID: 6259665926663907396, guid: 227b1fe2d28c94f77aa7fb7fb01fbd59, type: 3}
+  - {fileID: 7505947131765754579, guid: d5fb120d549334414acfc880a027ecc1, type: 3}
+  - {fileID: 8176547193288410923, guid: ab0a9476a394f41268b9013d8b4b91e5, type: 3}
+  - {fileID: 2857402250204195418, guid: d129f5cc8a6b34cf484f19fa131d649f, type: 3}
+  - {fileID: 2893266303148912703, guid: 9aa89c72aba1e48a1aa59811719bf509, type: 3}
+  - {fileID: 6156513304196729645, guid: 785b8fd9989f64ad1bd06f1d7dcbfe0f, type: 3}
+  faceSprites:
+  - {fileID: 6288725054739916980, guid: 54774c5fd2e3847e5bd53e0b659bc638, type: 3}
+  - {fileID: -3752711834126370623, guid: 95b23ca16962642408ef00eaae1b7993, type: 3}
+  - {fileID: -584679137961005888, guid: 209a7afaa6ecb4196962df37d07bbc9e, type: 3}
+  - {fileID: 6217520884255543542, guid: 6b0e57f76ab244f5690ae8ab1c99c46a, type: 3}
+  colors:
+  - {r: 0.7830189, g: 0.7830189, b: 0.7830189, a: 1}
+  - {r: 0.3773585, g: 0.3773585, b: 0.3773585, a: 1}
+  - {r: 0.26415092, g: 0.26415092, b: 0.26415092, a: 1}
+  - {r: 0.122641504, g: 0.122641504, b: 0.122641504, a: 1}
+  - {r: 0.5283019, g: 0.3981687, b: 0.36133856, a: 1}
+  - {r: 0.4339623, g: 0.22619338, b: 0.16990031, a: 1}
+  - {r: 0.2735849, g: 0.15828507, b: 0.12259701, a: 1}
+  - {r: 1, g: 0.829463, b: 0.7783019, a: 1}
+  - {r: 1, g: 0.77839917, b: 0.33333337, a: 1}
+  - {r: 0.33333337, g: 0.7881937, b: 1, a: 1}
+  - {r: 0.3474306, g: 0.33333337, b: 1, a: 1}
+  - {r: 0.72696465, g: 0.33333337, b: 1, a: 1}
+  - {r: 0.18464097, g: 0.006274463, b: 0.4433962, a: 1}
+  - {r: 1, g: 0.33490568, b: 0.33490568, a: 1}
+  - {r: 0, g: 0.5660378, b: 0.35294122, a: 1}
+  - {r: 0.8098142, g: 1, b: 0.33333337, a: 1}
+  rock:
+    imageType: 0
+    color: 0
+    shiny: 0
+    semiTransparent: 0
+    emotion: 0
+    slotIndex: 0
+  isPlaced: 0
 --- !u!1 &4797793413616215195
 GameObject:
   m_ObjectHideFlags: 0

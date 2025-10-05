@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Collections.Generic;
 using System.Linq;
 
@@ -6,8 +7,11 @@ public class PickupGameController : MonoBehaviour
 {
     public GameObject rockPrefab;
     public GameObject rockBox;
+    public GameObject goToShelfButton;
+    public GameObject instructionsPanel;
     List <PickupRock> pickupRocks = new List<PickupRock>();
     int maxSortingOrder = 0;
+    const int MaxSavedRocks = 3;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
@@ -94,7 +98,7 @@ public class PickupGameController : MonoBehaviour
         {
             pickupRock.transform.position = rockBox.transform.position;
         }
-        else if (droppedRocks.Count == 2)
+        else if (droppedRocks.Count >= 2)
         {
             pickupRock.transform.position = new Vector2
             (
@@ -103,5 +107,49 @@ public class PickupGameController : MonoBehaviour
             );
         }
         droppedRocks.Add(pickupRock);
+        SaveDroppedRocks();
+        if (droppedRocks.Count == MaxSavedRocks)
+        {
+            goToShelfButton.SetActive(true);
+        }
+    }
+
+    void SaveDroppedRocks()
+    {
+        // Keep only up to MaxSavedRocks
+        while (droppedRocks.Count > MaxSavedRocks)
+        {
+            droppedRocks[2].transform.position = droppedRocks[1].transform.position;
+            droppedRocks[1].transform.position = droppedRocks[0].transform.position;
+            droppedRocks[0].transform.position = Vector2.zero;
+            droppedRocks[0].isDropped = false;
+            droppedRocks.RemoveAt(0);
+        }
+
+        for (int i = 0; i < MaxSavedRocks; i++)
+        {
+            string key = $"DroppedRock_{i}";
+            if (i < droppedRocks.Count)
+            {
+                var rockData = droppedRocks[i].rock;
+                var json = JsonUtility.ToJson(rockData);
+                PlayerPrefs.SetString(key, json);
+            }
+            else
+            {
+                PlayerPrefs.DeleteKey(key);
+            }
+        }
+        PlayerPrefs.Save();
+    }
+
+    public void GoToShelf()
+    {
+        SceneManager.LoadScene("ShelfScene");
+    }
+
+    public void HideShowInstructions()
+    {
+        instructionsPanel.SetActive(!instructionsPanel.activeSelf);
     }
 }
