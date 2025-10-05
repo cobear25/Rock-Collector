@@ -56,6 +56,20 @@ public class ShelfRock : MonoBehaviour
         rockSpriteRenderer.sprite = rockSprites[rock.imageType];
         shadowSpriteRenderer.sprite = rockSprites[rock.imageType];
         face.sprite = faceSprites[(int)rock.emotion];
+        switch (rock.emotion) {
+            case Emotion.happy:
+                face.GetComponent<Animator>().Play("HappyFace");
+                break;
+            case Emotion.sad:
+                face.GetComponent<Animator>().Play("SadFace");
+                break;
+            case Emotion.angry:
+                face.GetComponent<Animator>().Play("AngryFace");
+                break;
+            case Emotion.scared:
+                face.GetComponent<Animator>().Play("ScaredFace");
+                break;
+        }
         rockSpriteRenderer.color = colors[rock.color];
         if (rock.semiTransparent) {
             rockSpriteRenderer.color = new Color(rockSpriteRenderer.color.r, rockSpriteRenderer.color.g, rockSpriteRenderer.color.b, 0.7f);

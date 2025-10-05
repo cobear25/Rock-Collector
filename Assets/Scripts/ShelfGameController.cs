@@ -28,10 +28,16 @@ public class ShelfGameController : MonoBehaviour
     List<Rock> placedRocks = new List<Rock>();
     List<Rock> tempPlacedRocks = new List<Rock>();
     int placedThisRound = 0;
+    AudioSource audioSource;
+    public AudioClip happySound;
+    public AudioClip sadSound;
+    public AudioClip angrySound;
+    public AudioClip scaredSound;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         for (int i = 0; i < shelfRocks.Length; i++)
         {
             var shelfRock = shelfRocks[i];
@@ -120,6 +126,20 @@ public class ShelfGameController : MonoBehaviour
             {
                 GameOver();
             }
+        }
+        switch (rock.emotion) {
+            case Emotion.happy:
+                audioSource.PlayOneShot(happySound);
+                break;
+            case Emotion.sad:
+                audioSource.PlayOneShot(sadSound);
+                break;
+            case Emotion.angry:
+                audioSource.PlayOneShot(angrySound);
+                break;
+            case Emotion.scared:
+                audioSource.PlayOneShot(scaredSound);
+                break;
         }
         CalculateScores();
     }

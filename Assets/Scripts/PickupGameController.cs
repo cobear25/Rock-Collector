@@ -12,9 +12,15 @@ public class PickupGameController : MonoBehaviour
     List <PickupRock> pickupRocks = new List<PickupRock>();
     int maxSortingOrder = 0;
     const int MaxSavedRocks = 3;
+    AudioSource audioSource;
+    public AudioClip happySound;
+    public AudioClip sadSound;
+    public AudioClip angrySound;
+    public AudioClip scaredSound;
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         PopulateLevel();
     }
 
@@ -63,16 +69,31 @@ public class PickupGameController : MonoBehaviour
     PickupRock hoveredRock;
     public void PickupRockHovered(PickupRock pickupRock)
     {
-        // if (hoveredRock != null)
-        // {
-            hoveredRock = pickupRock;
-            maxSortingOrder++;
-            pickupRock.shadowSpriteRenderer.sortingOrder = maxSortingOrder;
-            pickupRock.glow.sortingOrder = maxSortingOrder;
-            pickupRock.rockSpriteRenderer.sortingOrder = maxSortingOrder + 1;
-            pickupRock.shine.sortingOrder = maxSortingOrder + 3;
-            pickupRock.face.sortingOrder = maxSortingOrder + 2;
-        // }
+        hoveredRock = pickupRock;
+        maxSortingOrder++;
+        pickupRock.shadowSpriteRenderer.sortingOrder = maxSortingOrder;
+        pickupRock.glow.sortingOrder = maxSortingOrder;
+        pickupRock.rockSpriteRenderer.sortingOrder = maxSortingOrder + 1;
+        pickupRock.shine.sortingOrder = maxSortingOrder + 3;
+        pickupRock.face.sortingOrder = maxSortingOrder + 2;
+    }
+
+    public void RockPickedUp(PickupRock pickupRock)
+    {
+         switch (pickupRock.rock.emotion) {
+            case Emotion.happy:
+                audioSource.PlayOneShot(happySound);
+                break;
+            case Emotion.sad:
+                audioSource.PlayOneShot(sadSound);
+                break;
+            case Emotion.angry:
+                audioSource.PlayOneShot(angrySound);
+                break;
+            case Emotion.scared:
+                audioSource.PlayOneShot(scaredSound);
+                break;
+        }
     }
 
     public void PickupRockUnHovered(PickupRock pickupRock)
