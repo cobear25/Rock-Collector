@@ -75,6 +75,10 @@ public class ShelfGameController : MonoBehaviour
             shelfRockPreviews[i].isPlaced = true;
         }
         CalculateScores();
+        if (placedRocks.Count >= 15)
+        {
+            GameOver();
+        }
     }
 
     // Update is called once per frame
