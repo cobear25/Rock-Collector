@@ -89,7 +89,14 @@ public class ShelfGameController : MonoBehaviour
 
     public Rock GetCurrentRock()
     {
-        return droppedRocks[currentRock];
+        if (droppedRocks.Length > currentRock)
+        {
+            return droppedRocks[currentRock];
+        }
+        else
+        {
+            return droppedRocks[0];
+        }
     }
 
     public void RockHovered(int slotIndex)
